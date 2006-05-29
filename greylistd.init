@@ -40,7 +40,6 @@ case "$1" in
 	fi
 	;;
   restart)
-	checkconfig
 	$0 stop
 	$0 start
 	exit $?
