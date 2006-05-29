@@ -1,2 +1,5 @@
 # Define nice level for greylistd
 SERVICE_RUN_NICE_LEVEL="+5"
+
+# owner of greylistd socket
+GREYLISTD_OWNER=mail:mail
