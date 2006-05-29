@@ -1,0 +1,67 @@
+#!/bin/sh
+#
+# greylistd	greylist daemon
+#
+# chkconfig:	345 55 45
+#
+# description:	greylist daemon
+
+
+# Source function library
+. /etc/rc.d/init.d/functions
+
+# Get network config
+. /etc/sysconfig/network
+
+# Get service config
+[ -f /etc/sysconfig/greylistd ] && . /etc/sysconfig/greylistd
+
+RETVAL=0
+# See how we were called.
+case "$1" in
+  start)
+	# Check if the service is already running?
+	if [ ! -f /var/lock/subsys/greylistd ]; then
+		msg_starting greylistd
+		daemon --fork --user mail /usr/sbin/greylistd
+		RETVAL=$?
+		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/greylistd
+	else
+		msg_already_running greylistd
+	fi
+	;;
+  stop)
+	if [ -f /var/lock/subsys/greylistd ]; then
+		msg_stopping greylistd
+		killproc greylistd
+		rm -f /var/lock/subsys/greylistd >/dev/null 2>&1
+	else
+		msg_not_running greylistd
+	fi
+	;;
+  restart)
+	checkconfig
+	$0 stop
+	$0 start
+	exit $?
+	;;
+  status)
+	status greylistd
+	exit $?
+	;;
+  reload|force-reload)
+	if [ -f /var/lock/subsys/greylistd ]; then
+		msg_reloading greylistd
+		killproc greylistd -HUP
+		RETVAL=$?
+	else
+		msg_not_running greylistd >&2
+		exit 7
+	fi
+	;;
+  *)
+	msg_usage "$0 {start|stop|restart|reload|force-reload|status}"
+	exit 3
+esac
+
+exit $RETVAL
