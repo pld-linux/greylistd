@@ -57,7 +57,7 @@ case "$1" in
 		killproc greylistd -HUP
 		RETVAL=$?
 	else
-		msg_not_running greylistd >&2
+		msg_not_running greylistd
 		exit 7
 	fi
 	;;
