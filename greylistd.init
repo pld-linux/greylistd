@@ -26,9 +26,9 @@ case "$1" in
 		daemon --fork --user mail /usr/sbin/greylistd
 		RETVAL=$?
 		if [ $RETVAL -eq 0 ]; then
-		       touch /var/lock/subsys/greylistd
-		       [ -n "$GREYLISTD_OWNER" ] && sleep 1 && chown $GREYLISTD_OWNER /var/run/greylistd/socket
-	       fi
+			touch /var/lock/subsys/greylistd
+			[ -n "$GREYLISTD_OWNER" ] && sleep 1 && chown $GREYLISTD_OWNER /var/run/greylistd/socket
+		fi
 	else
 		msg_already_running greylistd
 	fi
