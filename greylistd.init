@@ -27,7 +27,7 @@ case "$1" in
 		RETVAL=$?
 		if [ $RETVAL -eq 0 ]; then
 		       touch /var/lock/subsys/greylistd
-		       [ -n "$GREYLISTD_OWNER" ] && chown $GREYLISTD_OWNER /var/run/greylistd/socket
+		       [ -n "$GREYLISTD_OWNER" ] && sleep 1 && chown $GREYLISTD_OWNER /var/run/greylistd/socket
 	       fi
 	else
 		msg_already_running greylistd
