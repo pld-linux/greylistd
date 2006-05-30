@@ -8,6 +8,7 @@ Source0:	http://ftp.debian.org/debian/pool/main/g/greylistd/%{name}_%{version}.t
 # Source0-md5:	6b30e7b329f033cac8dc362240ad779e
 Source1:	%{name}.init
 Source2:	%{name}.sysconfig
+URL:		http://packages.debian.org/unstable/mail/greylistd
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.268
 Requires:	python
