@@ -1,4 +1,5 @@
 Summary:	Simple greylisting system for mail transport agents
+Summary(pl):	Prosty system szarych list dla serwerów pocztowych
 Name:		greylistd
 Version:	0.8.3
 Release:	1
@@ -19,6 +20,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 This daemon provides a simple greylisting implementation for use with
 Exim and other mail transport agents (MTAs).
+
+%description -l pl
+Ten demon udostêpnia prost± implementacjê szarych list do
+wykorzystania z Eximem i innymi serwerami pocztowymi (MTA).
 
 %prep
 %setup -q
