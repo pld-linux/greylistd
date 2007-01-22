@@ -46,6 +46,7 @@ install doc/man8/*.8 $RPM_BUILD_ROOT%{_mandir}/man8
 rm -rf $RPM_BUILD_ROOT
 
 %post
+%service %{name} restart
 /sbin/chkconfig --add %{name}
 
 %preun
