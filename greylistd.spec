@@ -1,5 +1,5 @@
 Summary:	Simple greylisting system for mail transport agents
-Summary(pl.UTF-8):   Prosty system szarych list dla serwerów pocztowych
+Summary(pl.UTF-8):	Prosty system szarych list dla serwerów pocztowych
 Name:		greylistd
 Version:	0.8.3.3
 Release:	1
