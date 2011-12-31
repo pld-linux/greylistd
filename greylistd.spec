@@ -1,12 +1,12 @@
 Summary:	Simple greylisting system for mail transport agents
 Summary(pl.UTF-8):	Prosty system szarych list dla serwerów pocztowych
 Name:		greylistd
-Version:	0.8.7
+Version:	0.8.8
 Release:	1
 License:	GPL v2
 Group:		Daemons
 Source0:	http://ftp.debian.org/debian/pool/main/g/greylistd/%{name}_%{version}.tar.gz
-# Source0-md5:	ec384d5e23a8e4db964d1f6cb53b2d26
+# Source0-md5:	ea71dba950d67d183616258cd51d2d2c
 Source1:	%{name}.init
 Source2:	%{name}.sysconfig
 URL:		http://packages.debian.org/unstable/mail/greylistd
