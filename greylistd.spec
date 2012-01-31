@@ -9,6 +9,7 @@ Source0:	http://ftp.debian.org/debian/pool/main/g/greylistd/%{name}_%{version}.t
 # Source0-md5:	ea71dba950d67d183616258cd51d2d2c
 Source1:	%{name}.init
 Source2:	%{name}.sysconfig
+Source3:	%{name}.tmpfiles
 URL:		http://packages.debian.org/unstable/mail/greylistd
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.268
@@ -30,11 +31,14 @@ wykorzystania z Eximem i innymi serwerami pocztowymi (MTA).
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_sbindir},%{_sysconfdir}/{sysconfig,rc.d/init.d,%{name}},/var/run/%{name},/var/lib/%{name},%{_mandir}/man{1,8}}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_sbindir}} \
+	$RPM_BUILD_ROOT%{_sysconfdir}/{sysconfig,rc.d/init.d,%{name}} \
+	$RPM_BUILD_ROOT{/var/run/%{name},/var/lib/%{name},%{_mandir}/man{1,8}} \
+	$RPM_BUILD_ROOT/usr/lib/tmpfiles.d
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/%{name}
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/%{name}
+install %{SOURCE3} $RPM_BUILD_ROOT/usr/lib/tmpfiles.d/%{name}.conf
 
 install program/greylist $RPM_BUILD_ROOT%{_bindir}
 install program/greylistd $RPM_BUILD_ROOT%{_sbindir}
@@ -58,6 +62,7 @@ fi
 %files
 %defattr(644,root,root,755)
 %doc doc/examples/*
+/usr/lib/tmpfiles.d/%{name}.conf
 %dir %attr(755,mail,mail) /var/run/%{name}
 %dir %attr(755,mail,mail) /var/lib/%{name}
 %dir %{_sysconfdir}/%{name}
