@@ -1,12 +1,12 @@
 Summary:	Simple greylisting system for mail transport agents
 Summary(pl.UTF-8):	Prosty system szarych list dla serwerów pocztowych
 Name:		greylistd
-Version:	0.8.8.1
+Version:	0.8.8.3
 Release:	1
 License:	GPL v2
 Group:		Daemons
-Source0:	http://ftp.debian.org/debian/pool/main/g/greylistd/%{name}_%{version}.tar.gz
-# Source0-md5:	9e099ab51ab9bec5c53346ad7a9aa66a
+Source0:	http://ftp.debian.org/debian/pool/main/g/greylistd/%{name}_%{version}.tar.xz
+# Source0-md5:	0f44dd1b8f9c8884c43a8c4dfe1d6450
 Source1:	%{name}.init
 Source2:	%{name}.sysconfig
 Source3:	%{name}.tmpfiles
@@ -27,7 +27,7 @@ Ten demon udostępnia prostą implementację szarych list do
 wykorzystania z Eximem i innymi serwerami pocztowymi (MTA).
 
 %prep
-%setup -q -n %{name}
+%setup -q
 
 %install
 rm -rf $RPM_BUILD_ROOT
