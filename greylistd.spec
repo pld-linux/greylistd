@@ -1,20 +1,20 @@
 Summary:	Simple greylisting system for mail transport agents
 Summary(pl.UTF-8):	Prosty system szarych list dla serwerów pocztowych
 Name:		greylistd
-Version:	0.8.8.7
+Version:	0.8.8.8
 Release:	1
 License:	GPL v2
 Group:		Daemons
 Source0:	http://ftp.debian.org/debian/pool/main/g/greylistd/%{name}_%{version}.tar.xz
-# Source0-md5:	a97720a78299554f2a190f7fa6dfd39e
+# Source0-md5:	8c662726378044318965105ac549c9b6
 Source1:	%{name}.init
 Source2:	%{name}.sysconfig
 Source3:	%{name}.tmpfiles
 URL:		http://packages.debian.org/unstable/mail/greylistd
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.268
-Requires:	python
-Requires:	python-modules
+Requires:	python3
+Requires:	python3-modules
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
